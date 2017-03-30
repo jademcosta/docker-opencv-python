@@ -5,7 +5,7 @@ RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y build-essential cmake pkg-config libjpeg8-dev \
     libtiff5-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev \
-    libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libgtk-3-dev \
+    libswscale-dev libv4l-dev libxvidcore-dev libx264-dev \
     libatlas-base-dev gfortran wget unzip python3 python3-dev python3-pip
 
 RUN pip3 install --upgrade pip && pip3 install numpy
