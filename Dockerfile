@@ -22,7 +22,7 @@ RUN mkdir build && cd build && \
     cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
     -D INSTALL_PYTHON_EXAMPLES=ON \
     -D INSTALL_C_EXAMPLES=OFF \
-    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.1.0/modules \
+    -D OPENCV_EXTRA_MODULES_PATH=/root/opencv_contrib-3.1.0/modules \
     -D PYTHON3_EXECUTABLE=/usr/bin/python3.5 \
     -D BUILD_EXAMPLES=ON ..
 
@@ -30,5 +30,8 @@ RUN cd build/ && make -j4 && make install && ldconfig
 
 RUN cd /usr/local/lib/python3.5/dist-packages/ && \
     mv cv2.cpython-35m-x86_64-linux-gnu.so cv2.so
+
+RUN rm -rf /root/opencv-3.1.0 && rm /root/opencv.zip && \
+    rm -rf /root/opencv_contrib-3.1.0 && rm /root/opencv_contrib.zip
 
 WORKDIR "/"
